@@ -1,0 +1,35 @@
+<html>
+<head>
+  <title>Convertidor</title>
+  <script type="text/javascript">
+    function convertirGrados() {
+      var grados= parseFloat(document.getElementById("grados").value);
+      var opcion= document.getElementById("opcion").value;
+      var resultado= "";
+
+      if (opcion==="1") 
+      { 
+        resultado = (grados+273.15)+" Kelvin ";
+      }else if(opcion==="2") 
+      { 
+        resultado=((grados*9/5)+32)+" Fahrenheit ";
+      }
+      alert("El grado que escogió es: " + grados + " y equivale a: "+ resultado);
+      return false; 
+    }
+  </script>
+</head>
+
+<body>
+  <form id="myform" onsubmit="return convertirGrados();">
+    <p>Grados Centigrados: <input id="grados" name="grados" type="text" /></p>
+    <p>Número de Columnas 
+        <select name="opcion" id="opcion">
+            <option value="1"> KELVIN </option>
+            <option value="2"> FERENHEIT </option>
+        </select>
+    </p>
+    <p><input type="submit" /></p>
+  </form>
+</body>
+</html>
