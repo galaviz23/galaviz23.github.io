@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script> 
+<body> 
+<div id="myPlot" style="width:100%;max-width:700px"></div>
+<div id="myPlot2" style="width:100%;max-width:700px"></div>
+<div id="myPlot3" style="width:100%;max-width:700px"></div>
+
+
+<script>
+//plotly = origen externo con codigo de java
+
+const xArray = ["Intro Fisica", "Matematicas I", "Programacion I", "Programacion Web I", "Nucleo II", "Ingles II"];
+const yArray = [7, 7.5, 9.5, 9.5, 10, 7];
+const data = [{
+    x:xArray,
+    y:yArray,
+    type:"bar",                            //TIPO DE GRAFICA, "bar=barra"
+    orientation:"v",                       //a que orientacion va dirigido
+    marker: {color:"rgba(0,0,255,0.6)"}    //color de la barra, el "0.6" es la opasidad 
+    }];
+const layout = {title:"Calif. Primer Parcial"};
+Plotly.newPlot("myPlot", data, layout); //lugar donde se desplega, propiedades 
+
+const xArray2 = ["Intro Fisica", "Matematicas I", "Programacion I", "Programacion Web I", "Nucleo II", "Ingles II"];
+const yArray2 = [7, 7.5, 8.5, 9, 10, 7];
+const data2 = [{
+    x:xArray2,
+    y:yArray2,
+    type:"bar", 
+    orientation:"v",
+    marker: {color:"rgb(255,0,0)"} 
+}];
+const layout2 = {title:"Calif. Segundo Parcial"};
+Plotly.newPlot("myPlot2", data2, layout2);
+
+const xArray3 = ["Intro Fisica", "Matematicas I", "Programacion I", "Programacion Web I", "Nucleo II", "Ingles II"];
+const yArray3 = [];
+for (let i = 0; i < xArray3.length; i++) {
+    const randomGrade = Math.floor(Math.random() * 101); 
+    yArray3.push(randomGrade); 
+}
+const data3 = [{
+    x: xArray3,
+    y: yArray3,
+    type: "bar",
+    orientation: "v",
+    marker: { color: "rgb(58,255,0)" }
+}];
+const layout3 = { title: "Calif. Tercer Parcial" };
+Plotly.newPlot("myPlot3", data3, layout3);
+
+</script>
+</body>
+</html>

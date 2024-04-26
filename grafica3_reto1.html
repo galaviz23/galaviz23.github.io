@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <body>
+        <div id="myPlot" style="width:100%;max-width:700px"></div>
+        <script>
+            let inicio = parseInt(prompt("Punto Inicio"));
+            let final = parseInt(prompt("Punto Final"));
+
+            let exp = "Math.sin(x)"; //forlula o expresion
+            const xValues = []; //dos arreglos uno en x 
+            const yValues = []; //dos arreglos uno en y
+            for (let x = inicio; x <= final; x += 0.1) {
+            xValues.push(x);
+            yValues.push(eval(exp));
+            }
+
+            const data = [{x:xValues, y:yValues, mode:"lines"}];
+            const layout = {title: "y = " + exp};
+            Plotly.newPlot("myPlot", data, layout);
+        </script>
+    </body> 
+</html>
