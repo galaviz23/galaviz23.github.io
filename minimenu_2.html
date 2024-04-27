@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MINI MENÚ 2</title>
+    <style>
+        body{
+            text-align: center;
+            background-image: url(fondo_pagina.jpg);
+            
+        }
+        button{
+            background-color: aqua;/* color de fondo*/
+            color: black;/* color de texto*/
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+        button:hover{
+            background-color: blueviolet; /* color al pasar encima*/
+        }
+        p{
+            font-family: 'Times New Roman', Times, serif;
+            color: red;
+            font-size: 30px;
+        }
+        h1{
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            text-align: center;
+            color: red;
+            font-size: 40px;
+        }
+        a{
+            
+            color: chartreuse;
+        }
+    </style>
+</head>
+<body>
+    <h1> MINI MENÚ 2</h1>
+    <p>Click en la actividad</p>
+    
+    <button onclick="octavo()">GEOLOCALIZACIÓN</button> <br><br>
+    <button onclick="noveno()">GEOLOCALIZACIÓN MAPA</button> <br><br> 
+    <button onclick="decimo()">EJERCICIO VOLUMEN CAJA</button> <br><br>
+    <button onclick="undecimo()">GRAFICAS CALIFICACIONES</button> <br><br>
+    <button onclick="duodecimo()">GRAFICAS CALIFICACIONES ALEATORIO</button> <br><br>
+    <button onclick="decimotercero()">GRAFICAS RETO 1</button> <br><br>
+    <button onclick="decimocuarto()">GRAFICAS RETO 2</button> <br><br>
+    <p id="demo"></p>
+
+    <script>
+        function octavo(){
+            document.getElementById("demo").innerHTML = "<a href= 'https://galaviz23.github.io/ejercicio8_geolocalizacion'>GEOLOCALIZACIÓN</a>";
+        }
+        function noveno(){
+            document.getElementById("demo").innerHTML = "<a href= 'https://galaviz23.github.io/ejercicio9_geo_mapa'>GEOLOCALIZACIÓN MAPA</a>";
+        }
+        function decimo(){
+            document.getElementById("demo").innerHTML = "<a href= 'https://galaviz23.github.io/ejercicio10'>EJERCICIO VOLUMEN CAJA</a>";
+        }
+        function undecimo(){
+            document.getElementById("demo").innerHTML = "<a href= 'https://galaviz23.github.io/graficas1'>GRAFICAS CALIFICACIONES</a>";
+        }
+        function duodecimo(){
+            document.getElementById("demo").innerHTML = "<a href= 'https://galaviz23.github.io/graficas2'>GRAFICAS CALIFICACIONES ALEATORIO</a>";
+        }
+        function decimotercero(){
+            document.getElementById("demo").innerHTML = "<a href= 'https://galaviz23.github.io/grafica3_reto1'>GRAFICAS RETO 1</a>";
+        }
+        function decimocuarto(){
+            document.getElementById("demo").innerHTML = "<a href= 'https://galaviz23.github.io/grafica4_reto2'>GRAFICAS RETO 2</a>";
+        }
+    </script>
+</body>
+</html>
