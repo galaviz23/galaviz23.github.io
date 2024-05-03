@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            let intento=0;
+            
+            //FUNCIONES DEL JUEGO
+            function juega(){
+                const entrada = document.forms["myform"]["usuario"].value.toLowerCase();
+                if (entrada === "desoxirribonucleico") {
+                    alert("Ganaste");
+                } else {
+                    intento++;
+                    dibuja();
+                    if (intento >= 6) {
+                        alert("Perdiste");
+                    }
+                }
+            }
+
+            function dibuja(){
+                const canvas = document.getElementById("myCanvas");
+                const ctx = canvas.getContext("2d");
+
+                if (intento == 1) {
+                    // Cabeza
+                    ctx.beginPath();
+                    ctx.arc(200,150,30,0,2* Math.PI);
+                    ctx.stroke();
+                }
+                
+                if (intento == 2) {
+                    // Cuerpo
+                    ctx.beginPath();
+                    ctx.moveTo(200,180);
+                    ctx.lineTo(200,250);
+                    ctx.stroke();
+                }
+                
+                if (intento == 3) {
+                    // Brazo izquierdo
+                    ctx.beginPath();
+                    ctx.moveTo(200,200);
+                    ctx.lineTo(150,220);
+                    ctx.stroke();
+                }
+                
+                if (intento == 4) {
+                    // Brazo derecho
+                    ctx.beginPath();
+                    ctx.moveTo(200,200);
+                    ctx.lineTo(250,220);
+                    ctx.stroke();
+                }
+                
+                if (intento == 5) {
+                    // Pierna izquierda
+                    ctx.beginPath();
+                    ctx.moveTo(200,250);
+                    ctx.lineTo(150,280);
+                    ctx.stroke();
+                }
+                
+                if(intento == 6){
+                    // Pierna derecha
+                    ctx.beginPath();
+                    ctx.moveTo(200,250);
+                    ctx.lineTo(250,280);
+                    ctx.stroke();
+                }
+            }
+
+            function borra(){
+                intento = 0;
+                const canvas = document.getElementById("myCanvas");
+                const ctx = canvas.getContext("2d");
+                ctx.fillStyle = "white";
+                ctx.fillRect(5,5,400,400);
+                intento = 0;
+            }
+        </script>
+    </head>
+
+<body>
+    <h1>Ahorcado P2</h1>
+    <canvas id="myCanvas" width="400" height="400" style="border: 1px solid red;"></canvas>
+    <form id="myform">
+        <label for="palabra">Dame la palabra: </label>
+        <input type="text" id="palabra" name="usuario">
+    </form>
+    <p><button onclick="juega()">Jugar</button></p>
+    <p><button onclick="borra()">Borrar</button></p>
+</body>
+</html>
