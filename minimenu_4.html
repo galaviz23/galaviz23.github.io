@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MINI MENÚ 4</title>
+    <style>
+        /* Estilos para los botones */
+        button {
+            background-color: rgb(229, 255, 0); /* Color de fondo */
+            color: black; /* Color de texto */
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 40px;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Transiciones */
+        }
+        button:hover {
+            background-color: rgb(255, 0, 0); /* Color al pasar encima */
+            transform: scale(1.1); /* Escala el botón un 10% */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Agrega una sombra */
+        }
+
+        /* Estilos para el párrafo */
+        p {
+            font-family: 'Times New Roman', Times, serif;
+            color: rgb(238, 255, 0);
+            font-size: 60px;
+        }
+
+        /* Estilos para el encabezado */
+        h1 {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            text-align: center;
+            color: rgb(225, 255, 0);
+            font-size: 70px;
+        }
+
+        /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Montserrat", sans-serif;
+        }
+
+        /* Estilos para el cuerpo de la página */
+        body {
+            display: grid;
+            place-items: center;
+            min-height: 100vh;
+            background: #fff;
+            text-align: center;
+            background-image: url(lineas-moradas-y-negras_3840x2160_xtrafondos.com.jpg);
+            background-position: center;
+        }
+
+        /* Estilos para los enlaces */
+        a {
+            position: relative;
+            cursor: pointer;
+            background: #eee;
+            padding: 1rem 2rem;
+            margin: 0 20px;
+            font-size: 1.7rem;
+            display: inline-block;
+            color: #eee;
+            text-decoration: none;
+            overflow: hidden;
+            border: 2px solid #000;
+            border-radius: 5px;
+            color: rgb(255, 0, 0);
+        }
+        a span {
+            position: relative;
+            mix-blend-mode: difference;
+        }
+        a::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            transition: transform 0.3s;
+            transform: scaleX(0);
+            transform-origin: right;
+        }
+        a:hover::before {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Encabezado -->
+<h1>MINI MENÚ 4</h1>
+<!-- Párrafo de descripción -->
+<p>Click en la actividad:</p>
+
+<!-- Botones de selección -->
+<button onclick="decimoséptimo()">TEST A PDF</button> 
+<button onclick="decimoctavo()">Nombre + Tablas</button>
+<button onclick="decimonoveno()">Piramide Reto 1</button>
+
+
+<!-- Elemento para mostrar el resultado -->
+<p id="demo"></p>
+
+<script>
+    // Función para el botón "TEST A PDF"
+    function decimoséptimo(){
+        document.getElementById("demo").innerHTML = "<a href='https://galaviz23.github.io/testalumno_a_pdf.html'><span>TEST A PDF</span></a>";
+    }
+    // Función para el botón "Nombre + Tablas"
+    function decimoctavo(){
+        document.getElementById("demo").innerHTML = "<a href='https://galaviz23.github.io/ejerciciopdf_nombre_tabla.html'><span>Nombre + Tablas</span></a>";
+    }
+    // Función para el botón "Piramide Reto 1"
+    function decimonoveno(){
+        document.getElementById("demo").innerHTML = "<a href='https://galaviz23.github.io/ejerciciopdf_reto1.html'><span>Piramide Reto 1</span></a>";
+    }
+</script>
+</body>
+</html>
