@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MINI MENÚ PARCIAL 3</title>
+    <style>
+        /* Estilos para los botones */
+        button {
+            background-color: rgb(229, 255, 0); /* Color de fondo */
+            color: black; /* Color de texto */
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 40px;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Transiciones */
+        }
+        button:hover {
+            background-color: rgb(255, 0, 0); /* Color al pasar encima */
+            transform: scale(1.1); /* Escala el botón un 10% */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Agrega una sombra */
+        }
+
+        /* Estilos para el párrafo */
+        p {
+            font-family: 'Times New Roman', Times, serif;
+            color: rgb(38, 255, 0);
+            font-size: 60px;
+        }
+
+        /* Estilos para el encabezado */
+        h1 {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            text-align: center;
+            color: rgb(77, 255, 0);
+            font-size: 70px;
+        }
+
+        /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Montserrat", sans-serif;
+        }
+
+        /* Estilos para el cuerpo de la página */
+        body {
+            display: grid;
+            place-items: center;
+            min-height: 100vh;
+            background: #fff;
+            text-align: center;
+            background-image: url(lineas-de-colores-en-movimiento_3840x2160_xtrafondos.com.jpg);
+            background-position: center;
+        }
+
+        /* Estilos para los enlaces */
+        a {
+            position: relative;
+            cursor: pointer;
+            background: rgb(0, 30, 255);
+            padding: 1rem 2rem;
+            margin: 0 20px;
+            font-size: 1.7rem;
+            display: inline-block;
+            color: #6005a0;
+            text-decoration: none;
+            overflow: hidden;
+            border: 2px solid #fffb00;
+            border-radius: 5px;
+            color: rgb(255, 0, 0);
+        }
+        a span {
+            position: relative;
+            mix-blend-mode: difference;
+        }
+        a::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #ff00dd;
+            transition: transform 0.3s;
+            transform: scaleX(0);
+            transform-origin: right;
+        }
+        a:hover::before {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Encabezado -->
+<h1>MINI MENÚ PARCIAL 3</h1>
+<!-- Párrafo de descripción -->
+<p>Click en la actividad:</p>
+
+<!-- Botones de selección -->
+<button onclick="MiniMenu1()">Mini Menú 1</button> 
+<button onclick="MiniMenu2()">Mini Menú 2</button>
+<button onclick="MiniMenu3()">Mini Menú 3</button>
+<button onclick="MiniMenu4()">Mini Menú 4</button>
+
+
+<!-- Elemento para mostrar el resultado -->
+<p id="demo"></p>
+
+<script>
+    // Función para el botón "MiniMenu1"
+    function MiniMenu1(){
+        document.getElementById("demo").innerHTML = "<a href='https://galaviz23.github.io/minimenu.html'><span>Mini Menú 1</span></a>";
+    }
+    // Función para el botón "MiniMenu2"
+    function MiniMenu2(){
+        document.getElementById("demo").innerHTML = "<a href='https://galaviz23.github.io/minimenu_2'><span>Mini Menú 2</span></a>";
+    }
+    // Función para el botón "MiniMenu3"
+    function MiniMenu3(){
+        document.getElementById("demo").innerHTML = "<a href='https://galaviz23.github.io/minimenu_3_completo.html'><span>Mini Menú 3</span></a>";
+    }
+    // Función para el botón "MiniMenu4"
+    function MiniMenu4(){
+        document.getElementById("demo").innerHTML = "<a href='https://galaviz23.github.io/minimenu_4.html'><span>Mini Menú 4</span></a>";
+    }
+</script>
+</body>
+</html>
