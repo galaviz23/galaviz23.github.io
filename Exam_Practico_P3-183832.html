@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decodificador de Mensajes</title>
+    <style>
+        /* Estilos generales*/
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Estilos para el contenedor principal */
+        .contenedor {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #resultado {
+            margin-top: 20px;
+        }
+
+        /* Estilos para el iframe donde se mostrará el PDF */
+        iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <h1>Decodificador de Mensajes</h1>
+        <form id="formularioDecodificador">
+            <label for="mensajeCodificado">Mensaje Codificado: (Por espacios)</label>
+            <!-- Campo de entrada para el mensaje codificado -->
+            <input type="text" id="mensajeCodificado" name="mensajeCodificado" required placeholder="Ejemplo: 7 14 11 0 0 0 0 0 0 0">
+            <!-- Botón para decodificar el mensaje -->
+            <button type="button" onclick="decodificarMensaje()">Decodificar</button>
+        </form>
+        <div id="resultado">
+            <h2>Mensaje Decodificado:</h2>
+            <!-- Aquí se mostrará el mensaje decodificado -->
+            <p id="mensajeDecodificado"></p>
+        </div>
+        <!-- Botón para generar y mostrar el PDF -->
+        <button onclick="generarPDF()">Generar PDF</button>
+    </div>
+    <!-- Iframe donde se mostrará el PDF generado -->
+    <iframe id="marcoPDF"></iframe>
+
+    <!-- Incluimos la librería jsPDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script>
+        // Función para decodificar el mensaje
+        function decodificarMensaje() {
+            // Obtenemos el valor del campo de entrada
+            const mensajeCodificado = document.getElementById('mensajeCodificado').value.trim();
+            // Convertimos la secuencia de números en un array
+            const numeros = mensajeCodificado.split(' ').map(Number);
+            // Definimos el alfabeto
+            const alfabeto = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            
+            // Validamos que la secuencia tenga al menos 10 números y que estén entre 0 y 25
+            if (numeros.length < 10 || numeros.some(num => num < 0 || num > 25)) {
+                alert('Por favor, introduce al menos 10 números entre 0 y 25.');
+                return;
+            }
+
+            // Decodificamos el mensaje
+            let mensajeDecodificado = '';
+            for (let num of numeros) {
+                mensajeDecodificado += alfabeto[num];
+            }
+
+            // Mostramos el mensaje decodificado
+            document.getElementById('mensajeDecodificado').textContent = mensajeDecodificado;
+        }
+
+        // Función para generar y mostrar el PDF
+        function generarPDF() {
+            // Obtenemos el mensaje decodificado
+            const mensajeDecodificado = document.getElementById('mensajeDecodificado').textContent;
+            if (!mensajeDecodificado) {
+                alert('Primero debes decodificar un mensaje.');
+                return;
+            }
+
+            // Utilizamos jsPDF para crear el PDF
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            doc.text("Mensaje Decodificado:", 10, 10);
+            doc.text(mensajeDecodificado, 10, 20);
+
+            // Generamos una URL de datos para el PDF
+            const pdfDataUri = doc.output('datauristring');
+            // Mostramos el PDF en el iframe
+            document.getElementById('marcoPDF').src = pdfDataUri;
+        }
+    </script>
+</body>
+</html>
